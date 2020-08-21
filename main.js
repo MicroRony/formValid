@@ -16,7 +16,13 @@ function onSubmit(e) {
     setTimeout(() => msg.remove(), 3000);
 
   } else {
-    console.log('success');
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
+
+    userLists.appendChild(li);
+
+    nameInput.value = '';
+    emailInput.value = '';
   }
 }
 
