@@ -1,8 +1,8 @@
 const myForm = document.querySelector('#my-form');
 const nameInput = document.querySelector('#name');
 const emailInput = document.querySelector('#email');
+const userList = document.querySelector('#users');
 const msg = document.querySelector('.msg');
-const userLists = document.querySelector('#users');
 
 myForm.addEventListener('submit', onSubmit);
 
@@ -11,18 +11,16 @@ function onSubmit(e) {
 
   if (nameInput.value === '' || emailInput.value === '') {
     msg.classList.add('error');
-    msg.innerHTML = 'Please fill out the fields.';
+    msg.innerHTML = 'Please fill out all feilds.';
 
     setTimeout(() => msg.remove(), 3000);
-
   } else {
     const li = document.createElement('li');
     li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
 
-    userLists.appendChild(li);
+    userList.appendChild(li);
 
     nameInput.value = '';
     emailInput.value = '';
   }
 }
-
